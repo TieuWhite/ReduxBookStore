@@ -1,14 +1,26 @@
 import React from "react";
-import Pagination from '@mui/material/Pagination';
-import Stack from '@mui/material/Stack';
+import Pagination from "@mui/material/Pagination";
+import Stack from "@mui/material/Stack";
+import { useDispatch, useSelector } from "react-redux";
+import { setPageNum } from "../slice/bookSlice";
 
-const PaginationBar = ({ pageNum, setPageNum, totalPageNum }) => {
+const PaginationBar = () => {
   const handleChange = (event, value) => {
-    setPageNum(value);
+    dispatch(setPageNum(value));
   };
+  const dispatch = useDispatch();
+  const totalPage = 10;
+  const pageNum = useSelector((state) => state.books.pageNum);
+
   return (
     <Stack spacing={2}>
-      <Pagination count={totalPageNum} page={pageNum} onChange={handleChange} showFirstButton showLastButton />
+      <Pagination
+        count={totalPage}
+        page={pageNum}
+        onChange={handleChange}
+        showFirstButton
+        showLastButton
+      />
     </Stack>
   );
 };
