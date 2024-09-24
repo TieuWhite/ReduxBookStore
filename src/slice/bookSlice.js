@@ -2,6 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 
 const initState = {
   books: [],
+  book: {},
   loading: false,
   error: null,
   pageNum: 1,
@@ -10,7 +11,7 @@ const initState = {
 
 const bookSlice = createSlice({
   name: "books",
-  initState,
+  initialState: initState,
   reducers: {
     fetchBooksRequest(state) {
       state.loading = true;
@@ -23,11 +24,20 @@ const bookSlice = createSlice({
       state.error = action.payload;
       state.loading = false;
     },
+    setBook(state, action) {
+      state.book = action.payload;
+    },
+    setBooks(state, action) {
+      state.books = action.payload;
+    },
     setPageNum(state, action) {
       state.pageNum = action.payload;
     },
     setQuery(state, action) {
       state.query = action.payload;
+    },
+    setLoading(state, action) {
+      state.loading = action.payload;
     },
   },
 });
@@ -38,6 +48,9 @@ export const {
   fetchBooksError,
   setPageNum,
   setQuery,
+  setBook,
+  setLoading,
+  setBooks,
 } = bookSlice.actions;
 
 export default bookSlice.reducer;
