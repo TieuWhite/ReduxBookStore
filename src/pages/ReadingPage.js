@@ -47,7 +47,7 @@ const ReadingPage = () => {
       dispatch(setLoading(false));
     };
     fetchData();
-  }, [removedBookId]);
+  }, [removedBookId, dispatch]);
 
   useEffect(() => {
     if (!removedBookId) return;
@@ -63,7 +63,7 @@ const ReadingPage = () => {
       dispatch(setLoading(false));
     };
     fetchData();
-  }, [removedBookId]);
+  }, [removedBookId, dispatch]);
 
   return (
     <Container>

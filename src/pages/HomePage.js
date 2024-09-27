@@ -54,7 +54,7 @@ const HomePage = () => {
       .catch((error) => {
         dispatch(fetchBooksError(error));
       });
-  }, [pageNum, query]);
+  }, [pageNum, query, dispatch]);
 
   //--------------form
   const defaultValues = {

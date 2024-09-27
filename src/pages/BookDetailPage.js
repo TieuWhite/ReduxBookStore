@@ -36,7 +36,7 @@ const BookDetailPage = () => {
       dispatch(setLoading(false));
     };
     postData();
-  }, [addingBook]);
+  }, [addingBook, dispatch]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -50,7 +50,7 @@ const BookDetailPage = () => {
       dispatch(setLoading(false));
     };
     fetchData();
-  }, [bookId]);
+  }, [bookId, dispatch]);
 
   console.log(book);
 
